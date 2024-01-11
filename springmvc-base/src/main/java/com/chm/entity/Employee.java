@@ -2,7 +2,7 @@ package com.chm.entity;
 
 
 
-public class employee {
+public class Employee {
     private Integer id;
     private String name;
     private Integer age;
@@ -11,13 +11,13 @@ public class employee {
         return id;
     }
 
-    public employee(Integer id, String name, Integer age) {
+    public Employee(Integer id, String name, Integer age) {
         this.id = id;
         this.name = name;
         this.age = age;
     }
 
-    public employee() {
+    public Employee() {
     }
 
     @Override
