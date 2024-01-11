@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 
 @Controller
-public class paramController {
+public class ParamController {
     @RequestMapping("/seccess")
-    public String params(@RequestBody String user) {
+    public String params( User user) {
         System.out.println(user);
         return "seccess";
     }

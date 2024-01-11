@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 //@ResponseBody
-public class requestMappingController {
+public class RequestMappingController {
     /**
      * ant风格的路径
      * ？单个任意字符
