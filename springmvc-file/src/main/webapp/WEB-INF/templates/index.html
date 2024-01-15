@@ -7,7 +7,11 @@
 <body>
 <div>欢迎来到首页</div>
 <div>
-    <a th:href="@{/file/up}">下载图片</a>
+    <a th:href="@{/file/down}">下载图片</a>
+    <form th:action="@{/file/up}" method="post" enctype="multipart/form-data">
+        头像:<input type="file" name="photo"><br>
+        <input type="submit" value="提交">
+    </form>
 </div>
 </body>
 </html>
