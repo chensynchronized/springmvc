@@ -1,6 +1,5 @@
 package com.chm.utils;
 
-import com.chm.mapper.UserMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -18,7 +17,7 @@ public class SqlSessionUtil {
             is = Resources.getResourceAsStream("mybatis-config.xml");
             SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
             SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(is);
-            sqlSessionFactory.getConfiguration().addMapper(UserMapper.class);
+
             sqlSession = sqlSessionFactory.openSession(true);
         } catch (IOException e) {
             e.printStackTrace();

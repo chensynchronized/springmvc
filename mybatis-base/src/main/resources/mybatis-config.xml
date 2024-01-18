@@ -5,6 +5,9 @@
 <configuration>
     <!--引入properties文件-->
     <properties resource="jdbc.properties" />
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
     <typeAliases>
         <!--
         typeAlias：设置某个类型的别名

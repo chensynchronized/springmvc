@@ -1,6 +1,6 @@
 package com.chm.entity;
 
-public class Employee {
+public class Emp {
     private Integer empId;
 
     private String empName;
@@ -9,17 +9,17 @@ public class Employee {
 
     private String empEmail;
 
-    private Integer deptId;
+    private Dept dept;
 
-    public Employee() {
-    }
-
-    public Employee(Integer empId, String empName, Integer empAge, String empEmail, Integer deptId) {
+    public Emp(Integer empId, String empName, Integer empAge, String empEmail, Dept dept) {
         this.empId = empId;
         this.empName = empName;
         this.empAge = empAge;
         this.empEmail = empEmail;
-        this.deptId = deptId;
+        this.dept = dept;
+    }
+
+    public Emp() {
     }
 
     public Integer getEmpId() {
@@ -54,12 +54,12 @@ public class Employee {
         this.empEmail = empEmail;
     }
 
-    public Integer getDeptId() {
-        return deptId;
+    public Dept getDept() {
+        return dept;
     }
 
-    public void setDeptId(Integer deptId) {
-        this.deptId = deptId;
+    public void setDept(Dept dept) {
+        this.dept = dept;
     }
 
     @Override
@@ -69,7 +69,7 @@ public class Employee {
                 ", empName='" + empName + '\'' +
                 ", empAge=" + empAge +
                 ", empEmail='" + empEmail + '\'' +
-                ", deptId=" + deptId +
+                ", dept=" + dept +
                 '}';
     }
 }

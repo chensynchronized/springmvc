@@ -3,6 +3,78 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.chm.mapper.EmployeeMapper">
+<!--        List<Employee> getEmployeeLike(String s);
+select * from employee where emp_name like '%${s}%'
+        select * from employee where emp_name like "%"#{s}"%"
+-->
+    <select id="getEmployeeLike" resultType="Employee">
+        select * from employee where emp_name like concat('%',#{s},'%')
+    </select>
+
+<!--        Map<Integer,Map<String,Object>> getEmployeeToMapMap();-->
+    <select id="getEmployeeToMapMap" resultType="map">
+        select * from employee
+    </select>
+
+<!--        List<Map<String,Object>> getEmployeeToMapList(Integer empId);-->
+    <select id="getEmployeeToMapList" resultType="map">
+        select * from employee
+    </select>
+
+<!--        Map<String,Object> getEmployeeByMap(Integer empId);-->
+    <select id="getEmployeeToMap" resultType="map">
+        select * from employee where emp_id = #{empId}
+    </select>
+
+<!--        List<Employee> getAllEmployee();-->
+    <select id="getAllEmployee" resultType="Employee">
+        select * from employee
+    </select>
+
+
+<!--        Employee getEmployee(@Param("id") Integer empId);-->
+    <select id="getEmployee" resultType="Employee">
+        select * from employee where emp_id = #{id}
+    </select>
+
+<!--        int addEmployee(Employee employee);-->
+    <insert id="addEmployee">
+        insert into employee value (#{empId},#{empName},#{empAge},#{empEmail},#{deptId})
+    </insert>
+
+<!--        Employee getEmployeeByMap(Map map);-->
+    <select id="getEmployeeByMap" resultType="Employee">
+        select * from employee where emp_id = #{empId} and emp_name = #{empName}
+    </select>
+
+
+<!--        Employee getEmployeeByIdAndName(Integer empId,String empName);-->
+    <select id="getEmployeeByIdAndName" resultType="Employee">
+        select * from employee where emp_id = #{param1} and emp_name = #{param2}
+    </select>
+
+
+<!--      Employee getEmployeeByName(String empName);-->
+<!--    Unknown column 'zhangsan' in 'where clause'
+        ${}本质就是字符串拼接，需手动加单引号，会造成sql注入
+        当不加单引号，会被当初表中的字段进行查询
+-->
+    <select id="getEmployeeByName" resultType="Employee">
+        select * from employee where emp_name = ${empName}
+    </select>
+
+
+
+
+<!--    Employee getEmployeeById(Integer empId);-->
+    <select id="getEmployeeById" resultType="Employee">
+        select * from employee where emp_id = #{adc}
+    </select>
+
+
+
+
+
     <!--Employee getEmpAndDeptById(@Param("empId") Integer empId);-->
     <select id="getEmpAndDeptById" resultMap="empDeftMap">
         select employee.*,dept.dept_name from employee

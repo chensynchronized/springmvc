@@ -12,6 +12,7 @@
         <module>springmvc-base</module>
         <module>springmvc-ajax</module>
         <module>springmvc-file</module>
+        <module>mybatis-base</module>
 
     </modules>
 
