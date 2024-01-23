@@ -13,6 +13,7 @@
         <module>springmvc-ajax</module>
         <module>springmvc-file</module>
         <module>mybatis-base</module>
+        <module>dynamicSQL</module>
 
     </modules>
 

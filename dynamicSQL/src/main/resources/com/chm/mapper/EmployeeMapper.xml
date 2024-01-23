@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chm.mapper.EmployeeMapper">
+<!--    int insertEmployeeByForeach(List<Employee> list);-->
+    <insert id="insertEmployeeByForeach">
+        insert into employee value
+        <foreach collection="list" item="emp" separator=",">
+            (null,#{emp.empName},#{emp.empAge},#{emp.empEmail},#{emp.deptId})
+        </foreach>
+    </insert>
+
+
+<!--    List<Employee> getEmpListByCondition(Employee emp);-->
+    <select id="getEmpListByCondition" resultType="employee">
+        select * from employee
+        <trim prefix="where" prefixOverrides="and">
+            <if test="empName != null and empName != ''">
+                and emp_name = #{empName}
+            </if>
+            <if test="empAge != null and empAge != ''">
+                and emp_age = #{empAge}
+            </if>
+            <if test="empEmail != null and empEmail != ''">
+                and emp_email = #{empEmail}
+            </if>
+        </trim>
+    </select>
+
+
+
+    <select id="getEmpListByConditionTwo" resultType="employee">
+        select * from employee
+        <where>
+            <if test="empName != null and empName != ''">
+                and emp_name = #{empName}
+            </if>
+            <if test="empAge != null and empAge != ''">
+                and emp_age = #{empAge}
+            </if>
+        </where>
+    </select>
+
+    <select id="getEmpListByConditionOne" resultType="employee">
+        select * from employee where 1 = 1
+        <if test="empName != null and empName != ''">
+            and emp_name = #{empName}
+        </if>
+        <if test="empAge != null and empAge != ''">
+            and emp_age = #{empAge}
+        </if>
+
+    </select>
+
+</mapper>
