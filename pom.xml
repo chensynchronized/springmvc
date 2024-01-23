@@ -16,6 +16,7 @@
         <module>dynamicSQL</module>
 
         <module>spring-base</module>
+        <module>spring-aop</module>
 
 
     </modules>
